@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] bool _isGameRestartableInEditor = true;
     [SerializeField] float _speedRunTimer;
+    bool _isCounting = true;
     public static GameManager Instance { get; private set; }
     public float SpeedRunTimer { get => _speedRunTimer; }
 
@@ -26,7 +27,8 @@ public class GameManager : MonoBehaviour
 
     private void Update() 
     {
-        _speedRunTimer += Time.deltaTime;
+        if(_isCounting)
+            _speedRunTimer += Time.deltaTime;
     }
     
     private void Start() 
@@ -40,9 +42,17 @@ public class GameManager : MonoBehaviour
         #if UNITY_EDITOR
             if(!_isGameRestartableInEditor) return;
         #endif
+        Time.timeScale =.2f;
+        _isCounting =false;
+        StartCoroutine(COR_DelayRestart());
 
+    }
+    IEnumerator COR_DelayRestart()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+         Time.timeScale =1f;
+         _isCounting = true;
         var s = SceneManager.GetActiveScene();
         SceneManager.LoadScene(s.name);
-        
     }
 }

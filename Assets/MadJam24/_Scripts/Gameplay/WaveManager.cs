@@ -81,6 +81,8 @@ public class WaveManager : MonoBehaviour
             yield return new WaitForSeconds(MIN_TIME_BTW_ENTITIES);
         }
 
+        SetupWalls(waveData);
+        
          StartCoroutine(COR_WaitForWaveCleanUp());
          StartCoroutine(COR_WaitForWaveDuration(waveData.durationInSeconds));
 
@@ -89,6 +91,14 @@ public class WaveManager : MonoBehaviour
 
         Debug.Log("Wave Completed!");
         StartNextWave();
+    }
+
+    private void SetupWalls(Wave waveData)
+    {
+        // _bottomWall.Setup(waveData.bottomConvexWall);
+        // _topWall.Setup(waveData.topConvexWall);
+        // _rightWall.Setup(waveData.rightConvexWall);
+        // _leftWall.Setup(waveData.leftConvexWall);
     }
 
     private IEnumerator COR_WaitForWaveDuration(float duration)
