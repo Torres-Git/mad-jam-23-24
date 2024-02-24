@@ -14,8 +14,9 @@ public class PlayerController : MonoBehaviour, IPlayerController
     
 
     [Header("Stats Base")]
-    [SerializeField]private float _baseTurnSpeed = 360;
-    private float _currentSpeed;
+    [SerializeField]  float _baseTurnSpeed = 360;
+    // [SerializeField]private float _baseSpeed = 360;
+     [SerializeField] float _currentSpeed;
 
     
     private bool _isMoving = false;
@@ -43,13 +44,13 @@ public class PlayerController : MonoBehaviour, IPlayerController
     private void OnEnable()
     {
         _input.MoveEvent += GatherMovInput;
-        _input.InteractEvent += GatherInteractInput;
+        _input.FireEvent += GatherInteractInput;
     }
 
     private void OnDisable()
     {
         _input.MoveEvent -= GatherMovInput;
-        _input.InteractEvent -= GatherInteractInput;
+        _input.FireEvent -= GatherInteractInput;
     }
 
 
@@ -88,13 +89,13 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     private void Move() 
     {
-        _rb.MovePosition(transform.position + _model.transform.forward * _inputVec.normalized.magnitude  * Time.deltaTime);
+        _rb.MovePosition(transform.position + _model.transform.forward * _inputVec.normalized.magnitude  * _currentSpeed * Time.deltaTime);
     }
 }
 
 public static class Helpers 
 {
-    private static Matrix4x4 _isoMatrix = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
+    private static Matrix4x4 _isoMatrix = Matrix4x4.Rotate(Quaternion.Euler(0, 0, 0));
     public static Vector3 ToIso(this Vector3 input) => _isoMatrix.MultiplyPoint3x4(input);
     public static Vector3 FromIso(Vector3 isoPos) => _isoMatrix.inverse.MultiplyPoint3x4(isoPos);    
 }

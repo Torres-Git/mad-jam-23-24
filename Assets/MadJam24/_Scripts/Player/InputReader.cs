@@ -9,10 +9,10 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 	// so we can skip the null check when we use them
 	
 	// Gameplay
-	public event UnityAction SwitchEvent = delegate { };
-	public event UnityAction InteractStartEvent = delegate { };
-	public event UnityAction<bool> InteractEvent = delegate { };
-	public event UnityAction InteractCanceledEvent = delegate { };
+	public event UnityAction PauseEvent = delegate { };
+	public event UnityAction FireStartEvent = delegate { };
+	public event UnityAction<bool> FireEvent = delegate { };
+	public event UnityAction FireCanceledEvent = delegate { };
 	public event UnityAction<Vector2> MoveEvent = delegate { };
 	public event UnityAction StartedRunning = delegate { };
 	public event UnityAction StoppedRunning = delegate { };
@@ -34,26 +34,26 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 		DisableAllInput();
 	}
 
-	public void OnInteract(InputAction.CallbackContext context)
+	public void OnFire(InputAction.CallbackContext context)
 	{
-		InteractEvent.Invoke(context.performed);
+		FireEvent.Invoke(context.performed);
 		switch (context.phase)
 		{
 			case InputActionPhase.Started:
-				InteractStartEvent.Invoke();
+				FireStartEvent.Invoke();
 				break;
 			case InputActionPhase.Canceled:
-				InteractCanceledEvent.Invoke();
+				FireCanceledEvent.Invoke();
 				break;
 		}
 
 		Debug.Log("Interact");
 	}
 
-	public void OnSwitch(InputAction.CallbackContext context)
+	public void OnPause(InputAction.CallbackContext context)
     {
 		if(context.phase == InputActionPhase.Started)
-			SwitchEvent.Invoke();
+			PauseEvent.Invoke();
     }
 
 	public void OnMove(InputAction.CallbackContext context)
