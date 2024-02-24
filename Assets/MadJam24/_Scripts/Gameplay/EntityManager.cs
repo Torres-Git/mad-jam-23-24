@@ -6,8 +6,6 @@ public class EntityManager : MonoBehaviour
 {
     [SerializeField] EntityBehaviour _entityPrefab;
     [SerializeField] int _entityAmount;
-    [SerializeField] float _startHeight;
-    [SerializeField] float _arenaEdge;
     [SerializeField] bool _noEntities;
     GameObject parent;
 
@@ -18,7 +16,6 @@ public class EntityManager : MonoBehaviour
     void Start()
     {
         parent = new GameObject("Entity Parent");
-        DontDestroyOnLoad(parent);
     }
 
     // Update is called once per frame

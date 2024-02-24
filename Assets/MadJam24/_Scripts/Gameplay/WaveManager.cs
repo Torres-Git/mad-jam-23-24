@@ -19,6 +19,12 @@ public class WaveManager : MonoBehaviour
 
     private const float MIN_TIME_BTW_ENTITIES = 1f;
 
+    private IEnumerator Start() 
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        StartFirstWave();
+    }   
+
     //public Wave CurrentWave { get => _currentWave; }
 
     [ContextMenu("Start First Wave")]

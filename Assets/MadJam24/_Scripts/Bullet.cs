@@ -55,9 +55,12 @@ private IEnumerator GraduallyReduceVelocity(float duration, Vector3 targetVeloci
 
     private void OnCollisionEnter(Collision other) 
     {
+        var entity = other.gameObject.GetComponent<IEntity>();
+        var player = other.gameObject.GetComponent<IPlayerController>();
+
         if(_isReady)
         {
-            if(other.gameObject.GetComponent<IPlayerController>() != null)
+            if(player != null)
             {
                 GameManager.Instance.RestartGame();
             }
@@ -66,7 +69,13 @@ private IEnumerator GraduallyReduceVelocity(float duration, Vector3 targetVeloci
         {
             _isReady = true;
         }
-        
+
+
+        if(entity != null)
+        {
+            entity.OnBulletImpact();
+        }
+
         DOTween.Complete(transform);
         transform.DOPunchScale(Vector3.one *  _bulletData.BounceMultiplier,  _bulletData.BounceDuration).SetEase( _bulletData.BounceEase);
     }

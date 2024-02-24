@@ -7,20 +7,6 @@ public class EntityBehaviour : MonoBehaviour, IEntity
 {
     [SerializeField] private bool isDead = false;
     [SerializeField] private float fallDuration;
-    // Start is called before the first frame update
-    void Start()
-    {
-     
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (isDead)
-        {
-            DestroyEntity();
-        }
-    }
 
     public void Spawn(Vector3 spawn, float height) 
     { 
@@ -29,8 +15,24 @@ public class EntityBehaviour : MonoBehaviour, IEntity
         transform.DOMoveY(spawn.y, fallDuration);
     }
 
-    public void DestroyEntity() 
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isDead)
+        {
+            OnBulletImpact();
+        }
+    }
+
+
+    public void OnBulletImpact() 
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.GetComponent<Bullet>()) OnBulletImpact();    
     }
 }

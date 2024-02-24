@@ -16,5 +16,5 @@ public class Entity : ScriptableObject
 
 public interface IEntity
 {
-    void DestroyEntity();
+    void OnBulletImpact();
 }
