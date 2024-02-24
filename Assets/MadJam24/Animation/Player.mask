@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Player
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: HIP
+    m_Weight: 0
+  - m_Path: HIP/cube
+    m_Weight: 1
+  - m_Path: LEG_LEFT
+    m_Weight: 0
+  - m_Path: LEG_LEFT/cube_16
+    m_Weight: 1
+  - m_Path: LEG_LEFT/SHIN_LEFT
+    m_Weight: 1
+  - m_Path: LEG_LEFT/SHIN_LEFT/cube_17
+    m_Weight: 1
+  - m_Path: LEG_RIGHT
+    m_Weight: 0
+  - m_Path: LEG_RIGHT/cube_18
+    m_Weight: 1
+  - m_Path: LEG_RIGHT/SHIN_RIGHT
+    m_Weight: 1
+  - m_Path: LEG_RIGHT/SHIN_RIGHT/cube_19
+    m_Weight: 1
+  - m_Path: TORSO
+    m_Weight: 1
+  - m_Path: TORSO/ARM_LEFT
+    m_Weight: 1
+  - m_Path: TORSO/ARM_LEFT/cube_14
+    m_Weight: 0
+  - m_Path: TORSO/ARM_LEFT/FOREARM_LEFT
+    m_Weight: 1
+  - m_Path: TORSO/ARM_LEFT/FOREARM_LEFT/cube_15
+    m_Weight: 0
+  - m_Path: TORSO/ARM_RIGHT
+    m_Weight: 1
+  - m_Path: TORSO/ARM_RIGHT/cube_7
+    m_Weight: 0
+  - m_Path: TORSO/ARM_RIGHT/FOREARM_RIGHT
+    m_Weight: 1
+  - m_Path: TORSO/ARM_RIGHT/FOREARM_RIGHT/cube_8
+    m_Weight: 0
+  - m_Path: TORSO/ARM_RIGHT/FOREARM_RIGHT/cube_9
+    m_Weight: 0
+  - m_Path: TORSO/ARM_RIGHT/FOREARM_RIGHT/cube_10
+    m_Weight: 0
+  - m_Path: TORSO/ARM_RIGHT/FOREARM_RIGHT/cube_11
+    m_Weight: 0
+  - m_Path: TORSO/ARM_RIGHT/FOREARM_RIGHT/cube_12
+    m_Weight: 0
+  - m_Path: TORSO/ARM_RIGHT/FOREARM_RIGHT/cube_13
+    m_Weight: 0
+  - m_Path: TORSO/cube_1
+    m_Weight: 0
+  - m_Path: TORSO/cube_2
+    m_Weight: 0
+  - m_Path: TORSO/cube_3
+    m_Weight: 0
+  - m_Path: TORSO/cube_4
+    m_Weight: 0
+  - m_Path: TORSO/cube_5
+    m_Weight: 0
+  - m_Path: TORSO/HEAD
+    m_Weight: 1
+  - m_Path: TORSO/HEAD/cube_6
+    m_Weight: 1
+  - m_Path: TORSO/HEAD/helmet
+    m_Weight: 1
