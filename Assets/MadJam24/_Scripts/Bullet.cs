@@ -59,9 +59,7 @@ private IEnumerator GraduallyReduceVelocity(float duration, Vector3 targetVeloci
         {
             if(other.gameObject.GetComponent<IPlayerController>() != null)
             {
-                // GameManager...
-                var s = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(s.name);
+                GameManager.Instance.RestartGame();
             }
         }
         else
