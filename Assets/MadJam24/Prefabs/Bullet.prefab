@@ -48,11 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 669ec515b3ba977458047f91df369aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startBulletScale: {x: 0.2, y: 0.2, z: 0.2}
-  _bulletScale: {x: 0.6, y: 0.6, z: 0.6}
-  _scaleAnimDuration: 0.2
-  _startSpeedMultiplier: 2
-  _initialVelocityDuration: 0.05
+  _bulletData: {fileID: 11400000, guid: 82f7165a65f326a42b835898ddd591fb, type: 2}
 --- !u!33 &8036471735836715435
 MeshFilter:
   m_ObjectHideFlags: 0

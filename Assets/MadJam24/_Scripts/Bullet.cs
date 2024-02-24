@@ -5,12 +5,7 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] Vector3 _startBulletScale = Vector3.zero;
-    [SerializeField] Vector3 _bulletScale = Vector3.one;
-    [SerializeField] float _scaleAnimDuration = .3f;
-    [Space]
-    [SerializeField] float _startSpeedMultiplier = 3f;
-    [SerializeField] float _initialVelocityDuration = .3f;
+    [SerializeField] BulletSO _bulletData;
     Rigidbody _rigidbody;
     bool _isReady = false;
 
@@ -27,15 +22,15 @@ public void SetPositionAndDirection(Transform rotationTransform, float speed)
 
     // Calculate initial velocity
     Vector3 targetVelocity = rotationTransform.forward * speed;
-    Vector3 initialVelocity = rotationTransform.forward * (speed * _startSpeedMultiplier);
+    Vector3 initialVelocity = rotationTransform.forward * (speed * _bulletData.StartSpeedMultiplier);
     _rigidbody.velocity = initialVelocity;
     
     DOTween.Complete(transform);
-    transform.localScale = _startBulletScale;
-    transform.DOScale( _bulletScale, _scaleAnimDuration).SetEase(Ease.InSine);
+    transform.localScale =  _bulletData.StartBulletScale;
+    transform.DOScale(  _bulletData.BulletScale,  _bulletData.ScaleAnimDuration).SetEase( _bulletData.StartScaleEase);
 
     // Start coroutine to gradually reduce velocity
-    StartCoroutine(GraduallyReduceVelocity(_initialVelocityDuration, targetVelocity));
+    StartCoroutine(GraduallyReduceVelocity( _bulletData.InitialVelocityDuration, targetVelocity));
 }
 
 private IEnumerator GraduallyReduceVelocity(float duration, Vector3 targetVelocity)
@@ -73,5 +68,8 @@ private IEnumerator GraduallyReduceVelocity(float duration, Vector3 targetVeloci
         {
             _isReady = true;
         }
+        
+        DOTween.Complete(transform);
+        transform.DOPunchScale(Vector3.one *  _bulletData.BounceMultiplier,  _bulletData.BounceDuration).SetEase( _bulletData.BounceEase);
     }
 }
