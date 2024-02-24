@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2830187185762789774}
   - component: {fileID: 470697854824528903}
   - component: {fileID: 1211451482966816698}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nose(Penis)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,9 +93,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1193927984167928992}
   - component: {fileID: 731663680829102454}
+  - component: {fileID: 1717712384910920441}
   - component: {fileID: 2570043867824946902}
   - component: {fileID: 5176864387805335326}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4509898570539288767}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -133,8 +134,25 @@ MonoBehaviour:
   _rb: {fileID: 5176864387805335326}
   _model: {fileID: 8311365006158733314}
   _input: {fileID: 11400000, guid: b4b296509185ac14988223cbed2cb5c9, type: 2}
-  _baseTurnSpeed: 360
+  _baseTurnSpeed: 1080
   _currentSpeed: 7
+--- !u!114 &1717712384910920441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4509898570539288767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a263e9ac5e241c34aaf72fcfb0fa02bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _input: {fileID: 11400000, guid: b4b296509185ac14988223cbed2cb5c9, type: 2}
+  _rotationModel: {fileID: 9101370630183082421}
+  _bulletPrefab: {fileID: 6871464133232179077, guid: 788140fa59c968f459aad27176f9f6d0,
+    type: 3}
+  _bulletSpeed: 10
 --- !u!136 &2570043867824946902
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -142,7 +160,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4509898570539288767}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2a34e582b8e161e429946f6e049793f2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -166,9 +184,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4509898570539288767}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -183,7 +201,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!1 &8311365006158733314
 GameObject:
@@ -196,7 +214,7 @@ GameObject:
   - component: {fileID: 9101370630183082421}
   - component: {fileID: 4112988243682121236}
   - component: {fileID: 1495584239031640877}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

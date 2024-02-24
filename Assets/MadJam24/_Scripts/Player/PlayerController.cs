@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     
     private bool _isMoving = false;
+    private Quaternion _currentRotation;
     private bool _isInteracting = false;
     public bool IsMoving { get => _isMoving;  }
     public bool IsInteracting { get => _isInteracting;  }
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
 
     public static PlayerController Instance { get; private set; }
+    public Quaternion CurrentRotation { get => _currentRotation; }
 
     private void Awake() 
     { 
@@ -78,8 +80,8 @@ public class PlayerController : MonoBehaviour, IPlayerController
         if (_inputVec != Vector3.zero) 
         {
             _isMoving = true;
-            var lookRot = Quaternion.LookRotation(_inputVec.ToIso(), Vector3.up);
-            _model.transform.rotation = Quaternion.RotateTowards(_model.transform.rotation, lookRot, _baseTurnSpeed * Time.deltaTime);
+            _currentRotation = Quaternion.LookRotation(_inputVec.ToIso(), Vector3.up);
+            _model.transform.rotation = Quaternion.RotateTowards(_model.transform.rotation, _currentRotation, _baseTurnSpeed * Time.deltaTime);
         }
         else
         {

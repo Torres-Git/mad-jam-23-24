@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "InputReader", menuName = "Game/Input Reader")]
-public class InputReader : ScriptableObject, GameInput.IGameplayActions
+public class InputReader : ScriptableObject, DefaultActionMap.IGameplayActions
 {
 	// Assign delegate{} to events to initialise them with an empty delegate
 	// so we can skip the null check when we use them
@@ -17,13 +17,13 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 	public event UnityAction StartedRunning = delegate { };
 	public event UnityAction StoppedRunning = delegate { };
 
-	private GameInput _gameInput;
+	private DefaultActionMap _gameInput;
 
 	private void OnEnable()
 	{
 		if (_gameInput == null)
 		{
-			_gameInput = new GameInput();
+			_gameInput = new DefaultActionMap();
 			_gameInput.Gameplay.SetCallbacks(this);
 			EnableGameplayInput();
 		}
@@ -46,8 +46,6 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 				FireCanceledEvent.Invoke();
 				break;
 		}
-
-		Debug.Log("Interact");
 	}
 
 	public void OnPause(InputAction.CallbackContext context)
@@ -59,7 +57,6 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 	public void OnMove(InputAction.CallbackContext context)
 	{
 		MoveEvent.Invoke(context.ReadValue<Vector2>());
-		Debug.Log(context.ReadValue<Vector2>());
 	}
 
 	public void OnRun(InputAction.CallbackContext context)
