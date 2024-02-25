@@ -15,12 +15,12 @@ MonoBehaviour:
   _entities:
   - {fileID: 11400000, guid: 8869b210e979b824f8d47c2f0c690803, type: 2}
   - {fileID: 11400000, guid: 07621b1240755e54daa2a5a0499d37eb, type: 2}
+  - {fileID: 11400000, guid: 029fdb1283f159b49a77a5a904fb56cc, type: 2}
+  - {fileID: 11400000, guid: d0ba84a98a1103d40a29e8aa31eddceb, type: 2}
   - {fileID: 11400000, guid: 1bdd269bcaea3454a85e87dc11e12bd3, type: 2}
   - {fileID: 11400000, guid: 76d5edc1affeae84bb77b8e75372087d, type: 2}
   - {fileID: 11400000, guid: 13d66fea4104622459a46f7d63e6dd8f, type: 2}
   - {fileID: 11400000, guid: fb92963906757b14687ae0f2524b2efa, type: 2}
-  - {fileID: 11400000, guid: 029fdb1283f159b49a77a5a904fb56cc, type: 2}
-  - {fileID: 11400000, guid: d0ba84a98a1103d40a29e8aa31eddceb, type: 2}
   _narrationPopups: []
   _durationInSeconds: 30
   _bulletsNumber: 6
