@@ -85,6 +85,7 @@ public class BlasterBehaviour : MonoBehaviour
 
         bulletInstance.SetPositionAndDirection(_gunModel,_bulletSpeed,_bulletScaleOverride);
         _animator.SetTrigger(FIRE_TRIGGER);
+        GameManager.Instance.AddBullet();
         _lastBullet = bulletInstance; // Update the reference to the last fired bullet
         _audioOnFire.Play(_audioSource);
         StartCoroutine(COR_GunCooldown());

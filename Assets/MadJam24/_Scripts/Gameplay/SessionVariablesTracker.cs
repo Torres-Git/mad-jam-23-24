@@ -14,7 +14,7 @@ public class SessionVariablesTracker : MonoBehaviour
         
         if (Instance != null && Instance != this) 
         { 
-            Destroy(this); 
+            Destroy(gameObject); 
         } 
         else 
         { 

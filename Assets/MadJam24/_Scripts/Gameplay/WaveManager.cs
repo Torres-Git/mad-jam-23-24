@@ -107,7 +107,7 @@ public class WaveManager : MonoBehaviour
 
         
          StartCoroutine(COR_WaitForWaveCleanUp());
-         StartCoroutine(COR_WaitForWaveDuration(waveData.durationInSeconds));
+        //  StartCoroutine(COR_WaitForWaveDuration(waveData.durationInSeconds));
 
         yield return new WaitUntil(()=> _areEntitiesDead || _isWaveDurationCompleted);
         yield return new WaitForSeconds(1f);
@@ -128,6 +128,7 @@ public class WaveManager : MonoBehaviour
     {
         _isWaveDurationCompleted = false;
         yield return new WaitForSeconds(duration);
+        // _entitiesManager.CleanCurrentEntities();
         _isWaveDurationCompleted = true;
 
     }

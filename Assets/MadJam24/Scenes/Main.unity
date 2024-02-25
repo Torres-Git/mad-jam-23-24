@@ -2531,6 +2531,56 @@ PrefabInstance:
       propertyPath: _entitiesManager
       value: 
       objectReference: {fileID: 1834799172}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[2].text
+      value: Shoot the dummies, and avoid getting hit by your own shots.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[3].text
+      value: Survive the challenge, we'll be monitoring you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[4].text
+      value: Good luck.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1cb9f971476a36048b31bb9df0503105, type: 3}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d25d770d70d716e41a7b6adb49cd6819, type: 3}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e201267d4a2ea214ca464804e0db0847, type: 3}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[2].popupDuration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[3].popupDuration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[4].popupDuration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4964658119564146099, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
         type: 3}
       propertyPath: m_LocalPosition.x

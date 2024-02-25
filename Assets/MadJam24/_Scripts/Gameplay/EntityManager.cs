@@ -17,7 +17,7 @@ public class EntityManager : MonoBehaviour
         return true;
     }
 
-    private void CleanCurrentEntities()
+    public void CleanCurrentEntities()
     {
         for (int i = _currentEntities.Count - 1; i >= 0; i--)
         {

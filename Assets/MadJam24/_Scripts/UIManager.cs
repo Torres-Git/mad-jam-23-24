@@ -16,9 +16,12 @@ public class UIManager : MonoBehaviour
     [Space]
     [SerializeField] TextMeshProUGUI _timerText;
     [SerializeField] TextMeshProUGUI _nameText;
+    [SerializeField] TextMeshProUGUI _bulletText;
     [SerializeField] Image _waveDurationDisplay;
     [Space]
+    [SerializeField] AudioSource _dialogueSource;
     [SerializeField] NameListSO _nameList;
+
     private Coroutine _bottomPopupCoroutine;
     private Coroutine _topPopupCoroutine;
 
@@ -53,7 +56,7 @@ public class UIManager : MonoBehaviour
         if(playerTypeText != null)
         {
             var text = _nameList.Names[rNameIndex] +" "+ playerTypeText;
-            DisplayPopUpText( new PopupText(text, 4f),false);
+            DisplayPopUpText( new PopupText(text, 4f),true);
         }
 
         if(!string.IsNullOrEmpty(currentPlayerData.TypeName))
@@ -91,6 +94,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void UpdateAmountOfBullets(int amount)
+    {
+        var s=string.Format("{00}", amount);
+        _bulletText.text = "NºORBS:\n" + s;
+
+    }
     public void StartWaveDurationDisplay(float duration)
     {
         var timeOnWaveStart = GameManager.Instance.SpeedRunTimer;
@@ -106,6 +115,10 @@ public class UIManager : MonoBehaviour
         {
             if(_bottomPopupCoroutine!= null)
                 StopCoroutine(_bottomPopupCoroutine);
+
+            if(textToDisplay.audioClip != null)
+                _dialogueSource.PlayOneShot( textToDisplay.audioClip);
+
             
             _bottomPopupCoroutine = StartCoroutine(COR_PopupOnBottom(textToDisplay.text, textToDisplay.popupDuration));
 
@@ -151,8 +164,9 @@ public class PopupText
         this.popupDuration = v2;
     }
 
-[TextArea(2,5)]
+    [TextArea(2,5)]
     public string text;
     public float popupDuration;
+    public AudioClip audioClip;
 
 }

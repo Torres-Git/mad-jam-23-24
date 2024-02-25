@@ -6,15 +6,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] bool _isGameRestartableInEditor = true;
-    [SerializeField] float _speedRunTimer;
+    [SerializeField] float _speedRunTimer; 
+    [SerializeField] int _bulletsFired;
     bool _isCounting = true;
     public static GameManager Instance { get; private set; }
     public float SpeedRunTimer { get => _speedRunTimer; }
+    public int BulletFired { get => _bulletsFired; }
 
     private void Awake() 
     { 
         // If there is an instance, and it's not me, delete myself.
-        
         if (Instance != null && Instance != this) 
         { 
             Destroy(this); 
@@ -29,6 +30,12 @@ public class GameManager : MonoBehaviour
     {
         if(_isCounting)
             _speedRunTimer += Time.deltaTime;
+    }
+
+    public void AddBullet()
+    {
+        _bulletsFired++;
+        UIManager.Instance.UpdateAmountOfBullets(_bulletsFired);
     }
     
 
