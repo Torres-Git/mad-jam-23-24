@@ -6,6 +6,9 @@ using UnityEngine;
 public class EntityDummy : MonoBehaviour, IEntity
 {
     [SerializeField] private GameObject[] _models;
+    [SerializeField] private SimpleAudioEvent _audioOnBulletImpact;
+    [SerializeField] private SimpleAudioEvent _audioOnSpawn;
+    [SerializeField] private AudioSource _audioSource;
 
     [SerializeField] private float _startHeightOffset = 18;
     [SerializeField] private bool isDead = false;
@@ -17,11 +20,13 @@ public class EntityDummy : MonoBehaviour, IEntity
         EnableRandomModel();
         RandomizeRotation();
         transform.position = new Vector3(spawn.x, _startHeightOffset, spawn.z);
-        transform.DOMoveY(spawn.y, fallDuration);
+        transform.DOMoveY(spawn.y, fallDuration).OnComplete(()=> _audioOnSpawn.Play(_audioSource));
     }
     
     public void OnBulletImpact() 
     {
+        if(isDead) return;
+        _audioOnBulletImpact.Play(_audioSource);
         isDead = true;
         transform.DOScale(Vector3.one * .1f, 1f).OnComplete(
             ()=>

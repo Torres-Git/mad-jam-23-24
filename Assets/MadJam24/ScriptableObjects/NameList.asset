@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: NameList
   m_EditorClassIdentifier: 
   _names:
+  - HUG0
   - JUL10
   - M01SE5
   - '[U!S'

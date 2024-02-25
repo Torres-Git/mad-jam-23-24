@@ -6,6 +6,8 @@ using DG.Tweening;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] BulletSO _bulletData;
+    [SerializeField] SimpleAudioEvent _audioPlayerHit, _audioWallHit;
+    [SerializeField] AudioSource _audioSource;
     Rigidbody _rigidbody;
     bool _isReady = false;
 
@@ -62,6 +64,7 @@ private IEnumerator GraduallyReduceVelocity(float duration, Vector3 targetVeloci
         {
             if(player != null)
             {
+                _audioPlayerHit.Play(_audioSource);
                 GameManager.Instance.RestartGame();
             }
         }
@@ -70,11 +73,13 @@ private IEnumerator GraduallyReduceVelocity(float duration, Vector3 targetVeloci
             _isReady = true;
         }
 
-
         if(entity != null)
         {
             entity.OnBulletImpact();
         }
+
+        if(entity == null && player == null)
+            _audioWallHit.Play(_audioSource);
 
         DOTween.Complete(transform);
         transform.DOPunchScale(Vector3.one *  _bulletData.BounceMultiplier,  _bulletData.BounceDuration).SetEase( _bulletData.BounceEase);

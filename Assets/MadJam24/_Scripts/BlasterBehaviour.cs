@@ -15,6 +15,9 @@ public class BlasterBehaviour : MonoBehaviour
     [SerializeField] Material _coolDownMaterial;
     [SerializeField] Material _readyMaterial;
     [Space]
+    [SerializeField] SimpleAudioEvent _audioOnFire;
+    [SerializeField] AudioSource _audioSource;
+    [Space]
     [SerializeField] Bullet _bulletPrefab; // Reference to the bullet prefab
     [SerializeField] float _bulletSpeed = 10;
     [SerializeField] float _gunCooldownInSeconds = 5f;
@@ -60,7 +63,7 @@ public class BlasterBehaviour : MonoBehaviour
         bulletInstance.SetPositionAndDirection(_gunModel,_bulletSpeed);
         _animator.SetTrigger(FIRE_TRIGGER);
         _lastBullet = bulletInstance; // Update the reference to the last fired bullet
-
+        _audioOnFire.Play(_audioSource);
         StartCoroutine(COR_GunCooldown());
     }
 
