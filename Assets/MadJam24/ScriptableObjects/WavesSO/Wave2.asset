@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: Wave2
   m_EditorClassIdentifier: 
   _entities:
+  - {fileID: 11400000, guid: 1bdd269bcaea3454a85e87dc11e12bd3, type: 2}
   - {fileID: 11400000, guid: 76d5edc1affeae84bb77b8e75372087d, type: 2}
-  - {fileID: 11400000, guid: 159094167fa89244ca94fa47d37c63e2, type: 2}
+  - {fileID: 11400000, guid: 8a3afc60ebd008a42b41b40ee93e2bff, type: 2}
+  - {fileID: 11400000, guid: 9c444ddf3a4bfd1439a05ad8a710fd3d, type: 2}
   _narrationStrings:
   - Festinhaaaaa
   _durationInSeconds: 3
   _bulletsNumber: 3
   _topConvexWall: 0
   _bottomConvexWall: 0
-  _leftConvexWall: 1
+  _leftConvexWall: 0
   _rightConvexWall: 0

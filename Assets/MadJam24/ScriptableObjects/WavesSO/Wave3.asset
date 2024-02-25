@@ -13,15 +13,19 @@ MonoBehaviour:
   m_Name: Wave3
   m_EditorClassIdentifier: 
   _entities:
-  - {fileID: 11400000, guid: fb92963906757b14687ae0f2524b2efa, type: 2}
-  - {fileID: 11400000, guid: 41aef04aa87281d42bbbbf8ebf84378a, type: 2}
-  - {fileID: 11400000, guid: 58e498e52dbb89b4a89f65f227ed8c50, type: 2}
-  - {fileID: 11400000, guid: e1fa64832ef8d764695345d7a1b81fbe, type: 2}
+  - {fileID: 11400000, guid: 8869b210e979b824f8d47c2f0c690803, type: 2}
+  - {fileID: 11400000, guid: 029fdb1283f159b49a77a5a904fb56cc, type: 2}
+  - {fileID: 11400000, guid: 07621b1240755e54daa2a5a0499d37eb, type: 2}
+  - {fileID: 11400000, guid: d0ba84a98a1103d40a29e8aa31eddceb, type: 2}
+  - {fileID: 11400000, guid: d62a39a1ac243e94d89ba6080e7fe2d8, type: 2}
+  - {fileID: 11400000, guid: 1bdd269bcaea3454a85e87dc11e12bd3, type: 2}
+  - {fileID: 11400000, guid: 2a15a46540a85694fa01df2ace21dde6, type: 2}
+  - {fileID: 11400000, guid: 120d4b79a57d3b744a6fc2027081fb22, type: 2}
   _narrationStrings:
   - Autism time >:)
-  _durationInSeconds: 1.5
+  _durationInSeconds: 4
   _bulletsNumber: 4
   _topConvexWall: 0
-  _bottomConvexWall: 1
+  _bottomConvexWall: 0
   _leftConvexWall: 0
   _rightConvexWall: 0
