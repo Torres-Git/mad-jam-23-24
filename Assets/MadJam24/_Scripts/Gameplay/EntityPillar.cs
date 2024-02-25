@@ -28,6 +28,6 @@ public class EntityPillar : MonoBehaviour, IEntity
 
     public void RemoveEntity()
     {
-        transform.DOScale(Vector3.zero, 1f).OnComplete(()=>Destroy(transform.gameObject));
+        transform.DOMoveY(_startHeightOffset, spawnDuration *.2f).OnComplete(()=>Destroy(transform.gameObject));
     }
 }

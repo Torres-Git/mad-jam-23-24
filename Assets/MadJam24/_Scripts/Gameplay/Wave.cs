@@ -6,7 +6,7 @@ using UnityEngine;
 public class Wave : ScriptableObject
 {
     [SerializeField] List<Entity> _entities;
-    [SerializeField] List<string> _narrationStrings;
+    [SerializeField] List<PopupText> _narrationPopups;
     [SerializeField] float _durationInSeconds;
     [SerializeField] int _bulletsNumber;
     [SerializeField] bool _topConvexWall;
@@ -15,7 +15,7 @@ public class Wave : ScriptableObject
     [SerializeField] bool _rightConvexWall;
 
     public List<Entity> Entities { get => _entities; }
-    public List<string> narrationStrings { get => _narrationStrings; }
+    public List<PopupText> narrationStrings { get => _narrationPopups; }
     public float durationInSeconds { get => _durationInSeconds; }
     public int bulletsNumber { get => _bulletsNumber; }
     public bool topConvexWall { get => _topConvexWall; }

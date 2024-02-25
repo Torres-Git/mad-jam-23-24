@@ -22,9 +22,11 @@ public class UIManager : MonoBehaviour
     private float _currentWaveDuration = 0;
     private float _targetWaveDuration = 0;
     private float _timer = 0;
+    private bool _isPopupDisplayed = false;
 
     public static UIManager Instance { get; private set; }
-    
+    public bool IsPopupDisplayed { get => _isPopupDisplayed;  }
+
     private void Awake() 
     { 
         // If there is an instance, and it's not me, delete myself.
@@ -86,10 +88,12 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator COR_Popup(string text, float duration)
     {
+        _isPopupDisplayed = true;
         _popUp.alpha = 1;
         _popUpText.text = text;
         yield return new WaitForSeconds(duration);
         _popUp.alpha = 0;
+        _isPopupDisplayed = false;
 
     }
 }
@@ -103,6 +107,7 @@ public class PopupText
         this.popupDuration = v2;
     }
 
+[TextArea(5,5)]
     public string text;
     public float popupDuration;
 

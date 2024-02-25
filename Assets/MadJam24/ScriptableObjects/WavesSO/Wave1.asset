@@ -15,8 +15,7 @@ MonoBehaviour:
   _entities:
   - {fileID: 11400000, guid: 4e648cbadf003c84e8bf609203287fcf, type: 2}
   - {fileID: 11400000, guid: bce95c803b052904cb7dc58f4444b8b3, type: 2}
-  _narrationStrings:
-  - IT'S THE FIRST WAVE :D
+  _narrationPopups: []
   _durationInSeconds: 30
   _bulletsNumber: 2
   _topConvexWall: 0

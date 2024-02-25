@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    [SerializeField] PopupText[] _preWaveNarration;
     [SerializeField] List<Wave> _waves;
     [SerializeField] int _waveNumber = 0;
     [SerializeField] EntityManager _entitiesManager;
@@ -19,11 +20,19 @@ public class WaveManager : MonoBehaviour
     bool _isWaveDurationCompleted = false;
     bool _areEntitiesDead = false;
 
-    private const float MIN_TIME_BTW_ENTITIES = 1f;
+    private const float MIN_TIME_BTW_ENTITIES = .2f;
+    private const string Key = "introductionCompleted";
 
     private IEnumerator Start() 
     {
-        yield return new WaitForSecondsRealtime(2f);
+        if(!PlayerPrefs.HasKey("introductionCompleted"))
+            foreach (var popUpData in _preWaveNarration)
+            {
+                UIManager.Instance.DisplayPopUpText(popUpData);
+                yield return new WaitForSecondsRealtime(popUpData.popupDuration +.1f);
+            }
+
+        PlayerPrefs.SetInt(Key, 1);
         StartFirstWave();
     }   
 

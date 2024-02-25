@@ -2509,6 +2509,43 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8180af0322704df41a974df7cb62fe82,
         type: 2}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[0].text
+      value: Hey, you. You're finally awake
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[1].text
+      value: Welcome subject. Today you will be testing our new weapon for urban
+        warfare.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[2].text
+      value: Your contribution is crucial to Shutter Labs, the leading organization
+        in warfrare ordenance.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[0].popupDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[1].popupDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _preWaveNarration.Array.data[2].popupDuration
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4964658119564146099, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
         type: 3}
       propertyPath: m_LocalPosition.x
