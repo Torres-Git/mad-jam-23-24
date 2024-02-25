@@ -21,11 +21,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1bdd269bcaea3454a85e87dc11e12bd3, type: 2}
   - {fileID: 11400000, guid: 2a15a46540a85694fa01df2ace21dde6, type: 2}
   - {fileID: 11400000, guid: 120d4b79a57d3b744a6fc2027081fb22, type: 2}
-  _narrationStrings:
-  - Autism time >:)
+  _narrationPopups: []
   _durationInSeconds: 30
   _bulletsNumber: 4
   _topConvexWall: 0
   _bottomConvexWall: 0
   _leftConvexWall: 0
-  _rightConvexWall: 0
+  _rightConvexWall: 1
