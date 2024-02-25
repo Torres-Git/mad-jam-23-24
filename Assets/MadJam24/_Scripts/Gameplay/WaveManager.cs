@@ -116,10 +116,10 @@ public class WaveManager : MonoBehaviour
     private IEnumerator COR_WaitForWaveCleanUp()
     {
         _areEntitiesDead = false;
-        while (_entitiesManager.noEntities == false)
+        while (_entitiesManager.AreAllEntitiesDead() == false)
         {
             Debug.Log("Check!");
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
         }
         _areEntitiesDead = true;
 

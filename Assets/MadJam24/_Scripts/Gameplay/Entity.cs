@@ -27,6 +27,8 @@ public class Entity : ScriptableObject
 
 public interface IEntity
 {
+    bool IsDead();
     void Spawn(Vector3 position);
     void OnBulletImpact();
+    void RemoveEntity();
 }

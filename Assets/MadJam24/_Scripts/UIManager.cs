@@ -9,10 +9,13 @@ using System.Security.Claims;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] CanvasGroup _popUp;
     [SerializeField] TextMeshProUGUI _popUpText;
+    [SerializeField] CanvasGroup _popUp;
     [SerializeField] TextMeshProUGUI _timerText;
+    [SerializeField] TextMeshProUGUI _nameText;
     [SerializeField] Image _waveDurationDisplay;
+    [Space]
+    [SerializeField] NameListSO _nameList;
     private Coroutine _popupCoroutine;
 
     private bool _isOnWave = false;
@@ -35,7 +38,11 @@ public class UIManager : MonoBehaviour
             Instance = this; 
         } 
     }
-
+    private void Start() 
+    {
+        var rNameIndex = UnityEngine.Random.Range(0,_nameList.Names.Length -1);   
+        _nameText.text = "Subject:\n"+ _nameList.Names[rNameIndex];
+    }
     private void Update() 
     {
         var timer = GameManager.Instance.SpeedRunTimer;

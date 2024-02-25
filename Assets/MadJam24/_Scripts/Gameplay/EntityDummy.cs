@@ -10,6 +10,7 @@ public class EntityDummy : MonoBehaviour, IEntity
     [SerializeField] private float _startHeightOffset = 18;
     [SerializeField] private bool isDead = false;
     [SerializeField] private float fallDuration;
+    private int _rModelIndex;
 
     public void Spawn(Vector3 spawn) 
     { 
@@ -17,23 +18,37 @@ public class EntityDummy : MonoBehaviour, IEntity
         RandomizeRotation();
         transform.position = new Vector3(spawn.x, _startHeightOffset, spawn.z);
         transform.DOMoveY(spawn.y, fallDuration);
-
     }
     
     public void OnBulletImpact() 
     {
-        Destroy(gameObject);
+        isDead = true;
+        transform.DOScale(Vector3.one * .1f, 1f).OnComplete(
+            ()=>
+            { 
+                _models[_rModelIndex].gameObject.SetActive(false);
+            });
+    }
+
+    public void RemoveEntity()
+    {
+        Destroy(transform.gameObject);
+    }
+
+    public bool IsDead()
+    {
+       return isDead;
     }
 
     private void EnableRandomModel()
     {
-        int rModelIndex = Random.Range(0, _models.Length -1); 
+       _rModelIndex = Random.Range(0, _models.Length -1); 
         foreach (var item in _models)
         {
             item.gameObject.SetActive(false);
         }
 
-        _models[rModelIndex].SetActive(true);
+        _models[_rModelIndex].SetActive(true);
     }
     private void RandomizeRotation()
     {
@@ -42,20 +57,11 @@ public class EntityDummy : MonoBehaviour, IEntity
         transform.rotation = randomRotation;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (isDead)
-        {
-            OnBulletImpact();
-        }
-    }
-
-
-
-
     private void OnTriggerEnter(Collider other) 
     {
         if(other.GetComponent<Bullet>()) OnBulletImpact();    
     }
+
+
+    
 }

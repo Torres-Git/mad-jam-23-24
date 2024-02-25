@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1395f534d0be064eab1ff1f4dae39c6, type: 3}
-  m_Name: Convex
+  m_Script: {fileID: 11500000, guid: ea3a06da7d241db40a3dccb699830c16, type: 3}
+  m_Name: NameList
   m_EditorClassIdentifier: 
-  _horizontalPos: 3.2
-  _verticalPos: 3.5
-  _distance: 5
-  _tweenSpeed: 1
-  _prefab: {fileID: 8599335732081468502, guid: 63e52ba912848e74cbccfd1beeb8c763, type: 3}
+  _names:
+  - JUL10
+  - M01SE5
+  - '[U!S'
+  - 8RUN0
+  - /IAG0

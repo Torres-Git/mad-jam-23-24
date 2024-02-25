@@ -18,4 +18,14 @@ public class EntityPillar : MonoBehaviour, IEntity
     {
         // NADA
     }
+
+    public bool IsDead()
+    {
+        return true;
+    }
+
+    public void RemoveEntity()
+    {
+        transform.DOScale(Vector3.zero, 1f).OnComplete(()=>Destroy(transform.gameObject));
+    }
 }

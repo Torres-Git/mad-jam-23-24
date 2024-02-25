@@ -4,30 +4,35 @@ using UnityEngine;
 
 public class EntityManager : MonoBehaviour
 {
-    [SerializeField] bool _noEntities;
-    GameObject parent;
+    [SerializeField] List<GameObject> _currentEntities;
 
-
-    public bool noEntities { get => _noEntities;  }
-    // Start is called before the first frame update
-    void Start()
+    public bool AreAllEntitiesDead()
     {
-        parent = new GameObject("Entity Parent");
+        foreach (var item in _currentEntities)
+        {
+            if(item.GetComponent<IEntity>().IsDead() == false) return false;
+        }
+
+        CleanCurrentEntities();
+        return true;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CleanCurrentEntities()
     {
-        if (parent.transform.childCount == 0)
+        for (int i = _currentEntities.Count - 1; i >= 0; i--)
         {
-            _noEntities = true;
+            GameObject item = _currentEntities[i];
+            item.GetComponent<IEntity>().RemoveEntity();
         }
+        _currentEntities.Clear();
     }
 
     public void InstantiateEntity(Entity entityData)
     {
-        _noEntities = false;
-        var e = Instantiate(entityData.EntityPrefab, parent.transform);
-        e.GetComponent<IEntity>().Spawn(entityData.StartPos);
+        var e = Instantiate(entityData.EntityPrefab, this.transform);
+        var entityBehaviour =  e.GetComponent<IEntity>();
+        entityBehaviour.Spawn(entityData.StartPos);
+
+        _currentEntities.Add(e);
     }
 }
