@@ -21,11 +21,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fb92963906757b14687ae0f2524b2efa, type: 2}
   - {fileID: 11400000, guid: 029fdb1283f159b49a77a5a904fb56cc, type: 2}
   - {fileID: 11400000, guid: d0ba84a98a1103d40a29e8aa31eddceb, type: 2}
-  _narrationStrings:
-  - Dream team
+  _narrationPopups: []
   _durationInSeconds: 30
   _bulletsNumber: 6
-  _topConvexWall: 1
-  _bottomConvexWall: 1
-  _leftConvexWall: 0
-  _rightConvexWall: 0
+  _topConvexWall: 0
+  _bottomConvexWall: 0
+  _leftConvexWall: 1
+  _rightConvexWall: 1

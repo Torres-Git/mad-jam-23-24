@@ -17,11 +17,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 76d5edc1affeae84bb77b8e75372087d, type: 2}
   - {fileID: 11400000, guid: 8a3afc60ebd008a42b41b40ee93e2bff, type: 2}
   - {fileID: 11400000, guid: 9c444ddf3a4bfd1439a05ad8a710fd3d, type: 2}
-  _narrationStrings:
-  - Festinhaaaaa
+  _narrationPopups: []
   _durationInSeconds: 30
   _bulletsNumber: 3
   _topConvexWall: 0
   _bottomConvexWall: 0
-  _leftConvexWall: 0
+  _leftConvexWall: 1
   _rightConvexWall: 0

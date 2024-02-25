@@ -83,7 +83,7 @@ MonoBehaviour:
   _deathVFX: {fileID: 1937437110190557607}
   _startHeightOffset: 10
   isDead: 0
-  fallDuration: 2
+  fallDuration: 0.5
 --- !u!114 &-1889680638273276644
 MonoBehaviour:
   m_ObjectHideFlags: 0
