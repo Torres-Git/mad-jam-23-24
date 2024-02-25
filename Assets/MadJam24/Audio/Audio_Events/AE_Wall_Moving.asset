@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81f8274e24b80a542b356410113a5ed8, type: 3}
-  m_Name: AE_PlayerDeath
+  m_Name: AE_Wall_Moving
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 21cd3d4b326f3a245b7e205646a39673, type: 3}
   volume:
-    minValue: 1
-    maxValue: 1
+    minValue: 0.5
+    maxValue: 0.5
   pitch:
-    minValue: 0
-    maxValue: 0
+    minValue: 0.9712229
+    maxValue: 1.0287771
   stereoPan:
     minValue: 0
     maxValue: 0

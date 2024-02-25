@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81f8274e24b80a542b356410113a5ed8, type: 3}
-  m_Name: AE_BulletPlayerHit
+  m_Name: AE_Bullet_WallBounce
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: ea29706c599ffad418cb8f15a5e96f35, type: 3}
+  - {fileID: 8300000, guid: 42b3554b1e414c745bf0f479ba074e5d, type: 3}
   volume:
     minValue: 1
     maxValue: 1
   pitch:
-    minValue: 1
-    maxValue: 1
+    minValue: 0.805755
+    maxValue: 1.2064614
   stereoPan:
     minValue: 0
     maxValue: 0

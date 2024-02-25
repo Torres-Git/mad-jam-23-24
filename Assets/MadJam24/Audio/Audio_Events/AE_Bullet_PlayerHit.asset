@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81f8274e24b80a542b356410113a5ed8, type: 3}
-  m_Name: AE_BulletEnemyHit
+  m_Name: AE_Bullet_PlayerHit
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: f632b6944db69104aab914fb01f67f6a, type: 3}
+  - {fileID: 8300000, guid: ea29706c599ffad418cb8f15a5e96f35, type: 3}
   volume:
-    minValue: 0.7014391
-    maxValue: 0.7014391
+    minValue: 1
+    maxValue: 1
   pitch:
-    minValue: 0.8561151
-    maxValue: 1.1582735
+    minValue: 1
+    maxValue: 1
   stereoPan:
     minValue: 0
     maxValue: 0

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81f8274e24b80a542b356410113a5ed8, type: 3}
-  m_Name: AE_EnemiesFalling
+  m_Name: AE_Pillars_Falling
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: e9eada8c607089649a6fb97eb34ca667, type: 3}
+  - {fileID: 8300000, guid: c735e0fd2a016f34aa03537df56293ac, type: 3}
   volume:
     minValue: 1
     maxValue: 1
   pitch:
-    minValue: 0.94244605
-    maxValue: 1.0431653
+    minValue: 0.8992807
+    maxValue: 1.100719
   stereoPan:
     minValue: 0
     maxValue: 0
