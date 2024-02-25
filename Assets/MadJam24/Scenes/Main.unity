@@ -2486,6 +2486,29 @@ PrefabInstance:
       propertyPath: _entitiesManager
       value: 
       objectReference: {fileID: 1834799172}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _waves.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _waves.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: ca616c7affc0d384ba55c388ea4e912f,
+        type: 2}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _waves.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: edb32df6d06763546b5c1978e1073772,
+        type: 2}
+    - target: {fileID: 4806485690494132273, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
+        type: 3}
+      propertyPath: _waves.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8180af0322704df41a974df7cb62fe82,
+        type: 2}
     - target: {fileID: 4964658119564146099, guid: 2cb8128bcc601294fbb18d440eb0f1b9,
         type: 3}
       propertyPath: m_LocalPosition.x
