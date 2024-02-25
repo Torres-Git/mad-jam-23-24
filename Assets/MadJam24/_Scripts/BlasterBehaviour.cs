@@ -19,10 +19,15 @@ public class BlasterBehaviour : MonoBehaviour
     [SerializeField] AudioSource _audioSource;
     [Space]
     [SerializeField] Bullet _bulletPrefab; // Reference to the bullet prefab
-    [SerializeField] float _bulletSpeed = 10;
-    [SerializeField] float _gunCooldownInSeconds = 5f;
-    private WaitForSeconds _gunCooldownYeilder;
     [SerializeField] bool _canFire = true;
+    
+    // Space
+    private float _bulletSpeed = 10;
+    private float _gunCooldownInSeconds = 5f;
+    private bool _isTriggerHappy = false;
+    private float _triggerHappyMinTime = 2f;
+    private float _triggerHappyMaxTime = 20f;
+    private Vector3 _bulletScaleOverride = Vector3.zero;
 
     Stack<Bullet> _bulletStack; // A stack to hold the inactive bullets
     Bullet _lastBullet; // Reference to the last bullet fired
@@ -39,6 +44,24 @@ public class BlasterBehaviour : MonoBehaviour
     private void OnDisable() 
     {
         _input.FireStartEvent -= FireRequest;   
+    }
+
+    public void SetupBlaster(float newCooldown, float bulletSpeed, bool triggerHappy, Vector3 bulletScaleOverride)
+    {
+        _isTriggerHappy = triggerHappy;
+        _bulletScaleOverride = bulletScaleOverride;
+        _gunCooldownInSeconds = newCooldown;
+        _bulletSpeed = bulletSpeed;
+        StartCoroutine(COR_TriggerHappy());
+    }
+
+    IEnumerator COR_TriggerHappy()
+    {
+        while(_isTriggerHappy)
+        {
+            yield return new WaitForSeconds(Random.Range(_triggerHappyMinTime,_triggerHappyMaxTime));
+            FireRequest();
+        }
     }
 
     // Function to request firing a bullet
@@ -60,7 +83,7 @@ public class BlasterBehaviour : MonoBehaviour
             bulletInstance = Instantiate(_bulletPrefab);
         }
 
-        bulletInstance.SetPositionAndDirection(_gunModel,_bulletSpeed);
+        bulletInstance.SetPositionAndDirection(_gunModel,_bulletSpeed,_bulletScaleOverride);
         _animator.SetTrigger(FIRE_TRIGGER);
         _lastBullet = bulletInstance; // Update the reference to the last fired bullet
         _audioOnFire.Play(_audioSource);

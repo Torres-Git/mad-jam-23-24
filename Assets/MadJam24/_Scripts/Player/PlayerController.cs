@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IPlayerController
 {
+    private const string PLAYER_DATA_KEY = "currentPlayerDataIndex";
     private const string  RUN_BOOL = "IsWalk";
-
+    [SerializeField] private PlayerData[] _playerDataArray;
+    private PlayerData _currentPlayerData;
     [Header("Components")]
     [SerializeField] private Rigidbody _rb;
+    [SerializeField] private BlasterBehaviour _blaster;
     [SerializeField] private GameObject _model;
     [SerializeField] private InputReader _input;
     [SerializeField] private Animator _animator;
@@ -31,6 +34,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     public static PlayerController Instance { get; private set; }
     public Quaternion CurrentRotation { get => _currentRotation; }
+    public PlayerData CurrentPlayerData { get => _currentPlayerData;  }
 
     private void Awake() 
     { 
@@ -45,6 +49,22 @@ public class PlayerController : MonoBehaviour, IPlayerController
         } 
     }
 
+    private void Start() 
+    {
+        var dataIndex = 0;
+        
+        if(PlayerPrefs.HasKey(PLAYER_DATA_KEY))
+            dataIndex = PlayerPrefs.GetInt(PLAYER_DATA_KEY) + 1;
+        
+        if(dataIndex>_playerDataArray.Length - 1)
+            dataIndex = 0;
+
+        PlayerPrefs.SetInt(PLAYER_DATA_KEY, dataIndex);// Increment
+
+        _currentPlayerData = _playerDataArray[dataIndex];
+        _blaster.SetupBlaster(_currentPlayerData.GunCooldown, _currentPlayerData.BulletSpeed, _currentPlayerData.IsTriggerHappy, _currentPlayerData.BulletScaleOverride);
+        Debug.Log("PLAYING AS: " + _currentPlayerData.name);
+    }
     private void OnEnable()
     {
         _input.MoveEvent += GatherMovInput;
@@ -83,7 +103,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
         {
             _isMoving = true;
             _currentRotation = Quaternion.LookRotation(_inputVec.ToIso(), Vector3.up);
-            _model.transform.rotation = Quaternion.RotateTowards(_model.transform.rotation, _currentRotation, _baseTurnSpeed * Time.deltaTime);
+            _model.transform.rotation = Quaternion.RotateTowards(_model.transform.rotation, _currentRotation, _currentPlayerData.RotationSpeed * Time.deltaTime);
         }
         else
         {
@@ -94,8 +114,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
     private void Move() 
     {
         _animator.SetBool(RUN_BOOL, _inputVec.magnitude > 0);
-        Debug.Log( _inputVec.magnitude > 0);
-        _rb.MovePosition(transform.position + _model.transform.forward * _inputVec.normalized.magnitude  * _currentSpeed * Time.deltaTime);
+        _rb.MovePosition(transform.position + _model.transform.forward * _inputVec.normalized.magnitude  * _currentPlayerData.Speed * Time.deltaTime);
     }
 }
 

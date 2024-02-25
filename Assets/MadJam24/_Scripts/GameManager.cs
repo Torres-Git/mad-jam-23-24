@@ -31,10 +31,6 @@ public class GameManager : MonoBehaviour
             _speedRunTimer += Time.deltaTime;
     }
     
-    private void Start() 
-    {
-        UIManager.Instance.DisplayPopUpText(new PopupText("Have a nice day!", 1f));    
-    }
 
     // Update is called once per frame
     public void  RestartGame()

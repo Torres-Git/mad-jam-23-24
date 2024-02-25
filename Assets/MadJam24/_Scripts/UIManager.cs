@@ -9,14 +9,18 @@ using System.Security.Claims;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI _popUpText;
-    [SerializeField] CanvasGroup _popUp;
+    [SerializeField] TextMeshProUGUI _popUpBottomText;
+    [SerializeField] CanvasGroup _popUpBottom;
+    [SerializeField] TextMeshProUGUI _popUpTopText;
+    [SerializeField] CanvasGroup _popUpTop;
+    [Space]
     [SerializeField] TextMeshProUGUI _timerText;
     [SerializeField] TextMeshProUGUI _nameText;
     [SerializeField] Image _waveDurationDisplay;
     [Space]
     [SerializeField] NameListSO _nameList;
-    private Coroutine _popupCoroutine;
+    private Coroutine _bottomPopupCoroutine;
+    private Coroutine _topPopupCoroutine;
 
     private bool _isOnWave = false;
     private float _currentWaveDuration = 0;
@@ -43,8 +47,25 @@ public class UIManager : MonoBehaviour
     private void Start() 
     {
         var rNameIndex = UnityEngine.Random.Range(0,_nameList.Names.Length -1);   
-        _nameText.text = "Subject:\n"+ _nameList.Names[rNameIndex];
+        var currentPlayerData = PlayerController.Instance.CurrentPlayerData;
+        var playerTypeText = currentPlayerData.GetString();
+
+        if(playerTypeText != null)
+        {
+            var text = _nameList.Names[rNameIndex] +" "+ playerTypeText;
+            DisplayPopUpText( new PopupText(text, 4f),false);
+        }
+
+        if(!string.IsNullOrEmpty(currentPlayerData.TypeName))
+        {
+            _nameText.text = "Subject:\n"+ _nameList.Names[rNameIndex] +"<size=80%>\n("+currentPlayerData.TypeName+")</size>";
+        }
+        else
+        {
+            _nameText.text = "Subject:\n"+ _nameList.Names[rNameIndex];
+        }
     }
+
     private void Update() 
     {
         var timer = GameManager.Instance.SpeedRunTimer;
@@ -78,22 +99,44 @@ public class UIManager : MonoBehaviour
     }
     
 
-    public void DisplayPopUpText(PopupText textToDisplay)
+    public void DisplayPopUpText(PopupText textToDisplay, bool useBottom = true)
     {
-        if(_popupCoroutine!= null)
-            StopCoroutine(_popupCoroutine);
+        if(useBottom)
+        {
+            if(_bottomPopupCoroutine!= null)
+                StopCoroutine(_bottomPopupCoroutine);
+            
+            _bottomPopupCoroutine = StartCoroutine(COR_PopupOnBottom(textToDisplay.text, textToDisplay.popupDuration));
 
-        _popupCoroutine = StartCoroutine(COR_Popup(textToDisplay.text, textToDisplay.popupDuration));
+        }
+        else
+        {
+            if(_topPopupCoroutine!= null)
+                StopCoroutine(_topPopupCoroutine);
+
+            _topPopupCoroutine = StartCoroutine(COR_PopupOnTop(textToDisplay.text, textToDisplay.popupDuration));
+        }
     }
 
-    private IEnumerator COR_Popup(string text, float duration)
+    private IEnumerator COR_PopupOnBottom(string text, float duration)
     {
         _isPopupDisplayed = true;
-        _popUp.alpha = 1;
-        _popUpText.text = text;
+        _popUpBottom.alpha = 1;
+        _popUpBottomText.text = text;
         yield return new WaitForSeconds(duration);
-        _popUp.alpha = 0;
+        _popUpBottom.alpha = 0;
         _isPopupDisplayed = false;
+
+    }
+
+    private IEnumerator COR_PopupOnTop(string text, float duration)
+    {
+        // _isPopupDisplayed = true;
+        _popUpTop.alpha = 1;
+        _popUpTopText.text = text;
+        yield return new WaitForSeconds(duration);
+        _popUpTop.alpha = 0;
+        // _isPopupDisplayed = false;
 
     }
 }
