@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    private const string PLAYER_DATA_KEY = "currentPlayerDataIndex";
     [SerializeField] PopupText[] _preWaveNarration;
     [SerializeField] List<Wave> _waves;
     [SerializeField] int _waveNumber = 0;
@@ -23,23 +22,26 @@ public class WaveManager : MonoBehaviour
 
     private const float MIN_TIME_BTW_ENTITIES = .2f;
 
+
+
     private IEnumerator Start() 
     {
-        if(!PlayerPrefs.HasKey(PLAYER_DATA_KEY))
+        if(SessionVariablesTracker.Instance.HasPlayed == false)
             foreach (var popUpData in _preWaveNarration)
             {
                 UIManager.Instance.DisplayPopUpText(popUpData);
                 yield return new WaitForSecondsRealtime(popUpData.popupDuration +.1f);
             }
-            
+
         StartFirstWave();
     }   
 
-    //public Wave CurrentWave { get => _currentWave; }
 
     [ContextMenu("Start First Wave")]
     public void StartFirstWave()
     {
+        SessionVariablesTracker.Instance.HasPlayed = true;
+
         _waveNumber = 0;
         _waveIterator = _waves.GetEnumerator();
         StartNextWave();
