@@ -1,20 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "Entity", menuName = "Entities")]
 public class Entity : ScriptableObject
 {
+    [SerializeField] string _name;
     [SerializeField] Vector3 _startPos;
     [SerializeField] GameObject _entityPrefab;
-    [SerializeField] float _startHeight;
 
-    public Vector3 startPos { get => _startPos; }
-    public GameObject entityPrefab { get => _entityPrefab; }
-    public float startHeight { get => _startHeight; }
+    public Vector3 StartPos { get => _startPos; }
+    public GameObject EntityPrefab { get => _entityPrefab; }
+    public string Name { get => _name; }
+
+
+    public UnityAction DrawGizmo()
+    {
+        return new UnityAction(() =>
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(_startPos, 0.05f);
+        });
+    }
 }
 
 public interface IEntity
 {
+    void Spawn(Vector3 position);
     void OnBulletImpact();
 }

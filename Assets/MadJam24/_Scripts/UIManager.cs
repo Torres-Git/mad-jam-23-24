@@ -4,13 +4,22 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
+using System.Security.Claims;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] CanvasGroup _popUp;
     [SerializeField] TextMeshProUGUI _popUpText;
     [SerializeField] TextMeshProUGUI _timerText;
+    [SerializeField] Image _waveDurationDisplay;
     private Coroutine _popupCoroutine;
+
+    private bool _isOnWave = false;
+    private float _currentWaveDuration = 0;
+    private float _targetWaveDuration = 0;
+    private float _timer = 0;
+
     public static UIManager Instance { get; private set; }
     
     private void Awake() 
@@ -29,7 +38,8 @@ public class UIManager : MonoBehaviour
 
     private void Update() 
     {
-        string formattedTime = FormatTime(GameManager.Instance.SpeedRunTimer);
+        var timer = GameManager.Instance.SpeedRunTimer;
+        string formattedTime = FormatTime(timer);
 
         // Function to format time into "00:00:000" format
         string FormatTime(float timeInSeconds)
@@ -41,7 +51,24 @@ public class UIManager : MonoBehaviour
         }
         _timerText.text = formattedTime;
 
+        if(_isOnWave)
+        {
+            var durationLeft = _targetWaveDuration - timer;
+            var progress = 1f - (durationLeft / _currentWaveDuration);
+            _waveDurationDisplay.fillAmount = progress;
+            if(progress >1) _isOnWave = false;
+        }
     }
+
+    public void StartWaveDurationDisplay(float duration)
+    {
+        var timeOnWaveStart = GameManager.Instance.SpeedRunTimer;
+        _currentWaveDuration = duration;
+        _targetWaveDuration = timeOnWaveStart + _currentWaveDuration;
+        _isOnWave = true;
+    }
+    
+
     public void DisplayPopUpText(PopupText textToDisplay)
     {
         if(_popupCoroutine!= null)

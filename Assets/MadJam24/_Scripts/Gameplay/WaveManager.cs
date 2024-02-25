@@ -8,6 +8,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] List<Wave> _waves;
     [SerializeField] int _waveNumber = 0;
     [SerializeField] EntityManager _entitiesManager;
+    [SerializeField] Wall _leftWall, _rightWall, _topWall, _bottomWall;
+
 
     private IEnumerator<Wave> _waveIterator;
     private IEnumerator<Entity> _entitiesIterator;
@@ -72,7 +74,10 @@ public class WaveManager : MonoBehaviour
     private IEnumerator COR_Wave(Wave waveData)
     {
         Debug.Log("Wave Started!");
+        UIManager.Instance.StartWaveDurationDisplay(waveData.durationInSeconds);
         _entitiesIterator = waveData.Entities.GetEnumerator();
+
+        SetupWalls(waveData);
 
         while (_entitiesIterator.MoveNext())
         {
@@ -81,7 +86,6 @@ public class WaveManager : MonoBehaviour
             yield return new WaitForSeconds(MIN_TIME_BTW_ENTITIES);
         }
 
-        SetupWalls(waveData);
         
          StartCoroutine(COR_WaitForWaveCleanUp());
          StartCoroutine(COR_WaitForWaveDuration(waveData.durationInSeconds));
@@ -95,10 +99,10 @@ public class WaveManager : MonoBehaviour
 
     private void SetupWalls(Wave waveData)
     {
-        // _bottomWall.Setup(waveData.bottomConvexWall);
-        // _topWall.Setup(waveData.topConvexWall);
-        // _rightWall.Setup(waveData.rightConvexWall);
-        // _leftWall.Setup(waveData.leftConvexWall);
+        _bottomWall.Setup(waveData.bottomConvexWall);
+        _topWall.Setup(waveData.topConvexWall);
+        _rightWall.Setup(waveData.rightConvexWall);
+        _leftWall.Setup(waveData.leftConvexWall);
     }
 
     private IEnumerator COR_WaitForWaveDuration(float duration)

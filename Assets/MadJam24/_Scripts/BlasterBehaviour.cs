@@ -6,7 +6,9 @@ using UnityEngine.Pool;
 
 public class BlasterBehaviour : MonoBehaviour
 {    
+    private const string  FIRE_TRIGGER = "OnFire";
     [SerializeField] InputReader _input;
+    [SerializeField] Animator _animator;
     [SerializeField] Transform _gunModel;
     [SerializeField] Bullet _bulletPrefab; // Reference to the bullet prefab
     [SerializeField] float _bulletSpeed = 10;
@@ -46,6 +48,7 @@ public class BlasterBehaviour : MonoBehaviour
         }
 
         bulletInstance.SetPositionAndDirection(_gunModel,_bulletSpeed);
+        _animator.SetTrigger(FIRE_TRIGGER);
 
         _lastBullet = bulletInstance; // Update the reference to the last fired bullet
     }

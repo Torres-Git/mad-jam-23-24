@@ -22,6 +22,6 @@ MonoBehaviour:
   _durationInSeconds: 1.5
   _bulletsNumber: 4
   _topConvexWall: 0
-  _bottomConvexWall: 0
+  _bottomConvexWall: 1
   _leftConvexWall: 0
   _rightConvexWall: 0
