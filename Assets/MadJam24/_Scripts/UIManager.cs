@@ -107,7 +107,7 @@ public class PopupText
         this.popupDuration = v2;
     }
 
-[TextArea(5,5)]
+[TextArea(2,5)]
     public string text;
     public float popupDuration;
 
