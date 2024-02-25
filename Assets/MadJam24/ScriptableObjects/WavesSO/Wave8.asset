@@ -13,16 +13,15 @@ MonoBehaviour:
   m_Name: Wave8
   m_EditorClassIdentifier: 
   _entities:
-  - {fileID: 11400000, guid: 4e648cbadf003c84e8bf609203287fcf, type: 2}
-  - {fileID: 11400000, guid: bce95c803b052904cb7dc58f4444b8b3, type: 2}
   - {fileID: 11400000, guid: 6961dad6f6debca4fab5764a9ce1a815, type: 2}
   - {fileID: 11400000, guid: 58e498e52dbb89b4a89f65f227ed8c50, type: 2}
   - {fileID: 11400000, guid: 8a3afc60ebd008a42b41b40ee93e2bff, type: 2}
   - {fileID: 11400000, guid: a6bca8d0523824a4d9739cf38b5610e3, type: 2}
+  - {fileID: 11400000, guid: 4e648cbadf003c84e8bf609203287fcf, type: 2}
+  - {fileID: 11400000, guid: bce95c803b052904cb7dc58f4444b8b3, type: 2}
   - {fileID: 11400000, guid: 5751112e99014c044a0fe7ae50017617, type: 2}
   - {fileID: 11400000, guid: 57351f3c0ca00b342b4ba0fd51446e4f, type: 2}
-  _narrationStrings:
-  - Dream team
+  _narrationPopups: []
   _durationInSeconds: 30
   _bulletsNumber: 6
   _topConvexWall: 1
