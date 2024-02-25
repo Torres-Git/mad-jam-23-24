@@ -73,16 +73,9 @@ public class UIManager : MonoBehaviour
     private void Update() 
     {
         var timer = GameManager.Instance.SpeedRunTimer;
-        string formattedTime = FormatTime(timer);
+        string formattedTime = GetFormatTime(timer);
 
-        // Function to format time into "00:00:000" format
-        string FormatTime(float timeInSeconds)
-        {
-            int minutes = Mathf.FloorToInt(timeInSeconds / 60f);
-            int seconds = Mathf.FloorToInt(timeInSeconds % 60f);
-            int milliseconds = Mathf.FloorToInt((timeInSeconds - Mathf.Floor(timeInSeconds)) * 1000f);
-            return string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
-        }
+
         _timerText.text = formattedTime;
 
         if(_isOnWave)
@@ -92,6 +85,16 @@ public class UIManager : MonoBehaviour
             _waveDurationDisplay.fillAmount = progress;
             if(progress >1) _isOnWave = false;
         }
+    }
+
+
+    // Function to format time into "00:00:000" format
+    public string GetFormatTime(float timeInSeconds)
+    {
+        int minutes = Mathf.FloorToInt(timeInSeconds / 60f);
+        int seconds = Mathf.FloorToInt(timeInSeconds % 60f);
+        int milliseconds = Mathf.FloorToInt((timeInSeconds - Mathf.Floor(timeInSeconds)) * 1000f);
+        return string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
     }
 
     public void UpdateAmountOfBullets(int amount)

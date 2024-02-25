@@ -54,7 +54,13 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-        UIManager.Instance.DisplayPopUpText(new PopupText("GG Ez!", 1f));    
+        UIManager.Instance.DisplayPopUpText(new PopupText("!SUBJECT PROMISING!", 1000f));    
+        UIManager.Instance.DisplayPopUpText(
+            new PopupText
+            (
+                "TEST RESULTS:\n----\nORBS FIRED: "+ _bulletsFired+"\nDURATION: "+UIManager.Instance.GetFormatTime(_speedRunTimer)+"\nHQ:\nLETTUCE STUDIOS\n----\nBRUNO DIAS\nLUIS TORRES\nTIAGO CASTRO\nJULIO ARAUJO\nTHANK YOU\nFOR YOUR\nCONTRIBUTION"
+            , 10000f
+            ),false);    
         Time.timeScale = 0f;
     }
 
