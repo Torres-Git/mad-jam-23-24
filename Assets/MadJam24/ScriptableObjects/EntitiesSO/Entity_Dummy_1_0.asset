@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Entity_Dummy_1_0
   m_EditorClassIdentifier: 
   _name: Tiago
-  _startPos: {x: -5, y: 1, z: -1.8}
+  _startPos: {x: -5, y: 1, z: 1.8}
   _entityPrefab: {fileID: 1123188323400103495, guid: 79c51d07f31af8d4ca86f3d5e0f780fe,
     type: 3}

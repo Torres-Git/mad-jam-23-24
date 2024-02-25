@@ -13,15 +13,21 @@ MonoBehaviour:
   m_Name: Wave5
   m_EditorClassIdentifier: 
   _entities:
-  - {fileID: 11400000, guid: 029fdb1283f159b49a77a5a904fb56cc, type: 2}
-  - {fileID: 11400000, guid: 58e498e52dbb89b4a89f65f227ed8c50, type: 2}
-  - {fileID: 11400000, guid: 07621b1240755e54daa2a5a0499d37eb, type: 2}
-  - {fileID: 11400000, guid: 159094167fa89244ca94fa47d37c63e2, type: 2}
+  - {fileID: 11400000, guid: 4e648cbadf003c84e8bf609203287fcf, type: 2}
+  - {fileID: 11400000, guid: bce95c803b052904cb7dc58f4444b8b3, type: 2}
+  - {fileID: 11400000, guid: 1bdd269bcaea3454a85e87dc11e12bd3, type: 2}
+  - {fileID: 11400000, guid: d62a39a1ac243e94d89ba6080e7fe2d8, type: 2}
+  - {fileID: 11400000, guid: 3daa91d670f3d044f83c294b6fd9f174, type: 2}
+  - {fileID: 11400000, guid: 8c6ca3b30eb22d346b1ea757052595bf, type: 2}
+  - {fileID: 11400000, guid: 2a15a46540a85694fa01df2ace21dde6, type: 2}
+  - {fileID: 11400000, guid: 120d4b79a57d3b744a6fc2027081fb22, type: 2}
+  - {fileID: 11400000, guid: 5751112e99014c044a0fe7ae50017617, type: 2}
+  - {fileID: 11400000, guid: 57351f3c0ca00b342b4ba0fd51446e4f, type: 2}
   _narrationStrings:
   - Dream team
-  _durationInSeconds: 2
+  _durationInSeconds: 30
   _bulletsNumber: 6
-  _topConvexWall: 0
+  _topConvexWall: 1
   _bottomConvexWall: 1
   _leftConvexWall: 0
-  _rightConvexWall: 1
+  _rightConvexWall: 0

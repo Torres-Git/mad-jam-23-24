@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bba480fd64586e44fb0365bd3fdfe9f2, type: 3}
-  m_Name: Wave3
+  m_Name: Wave7
   m_EditorClassIdentifier: 
   _entities:
-  - {fileID: 11400000, guid: 8869b210e979b824f8d47c2f0c690803, type: 2}
-  - {fileID: 11400000, guid: 029fdb1283f159b49a77a5a904fb56cc, type: 2}
-  - {fileID: 11400000, guid: 07621b1240755e54daa2a5a0499d37eb, type: 2}
-  - {fileID: 11400000, guid: d0ba84a98a1103d40a29e8aa31eddceb, type: 2}
-  - {fileID: 11400000, guid: d62a39a1ac243e94d89ba6080e7fe2d8, type: 2}
+  - {fileID: 11400000, guid: 4e648cbadf003c84e8bf609203287fcf, type: 2}
+  - {fileID: 11400000, guid: bce95c803b052904cb7dc58f4444b8b3, type: 2}
   - {fileID: 11400000, guid: 1bdd269bcaea3454a85e87dc11e12bd3, type: 2}
+  - {fileID: 11400000, guid: d62a39a1ac243e94d89ba6080e7fe2d8, type: 2}
   - {fileID: 11400000, guid: 2a15a46540a85694fa01df2ace21dde6, type: 2}
   - {fileID: 11400000, guid: 120d4b79a57d3b744a6fc2027081fb22, type: 2}
+  - {fileID: 11400000, guid: 5751112e99014c044a0fe7ae50017617, type: 2}
+  - {fileID: 11400000, guid: 57351f3c0ca00b342b4ba0fd51446e4f, type: 2}
   _narrationStrings:
-  - Autism time >:)
+  - Dream team
   _durationInSeconds: 30
-  _bulletsNumber: 4
-  _topConvexWall: 0
-  _bottomConvexWall: 0
-  _leftConvexWall: 0
-  _rightConvexWall: 0
+  _bulletsNumber: 6
+  _topConvexWall: 1
+  _bottomConvexWall: 1
+  _leftConvexWall: 1
+  _rightConvexWall: 1
