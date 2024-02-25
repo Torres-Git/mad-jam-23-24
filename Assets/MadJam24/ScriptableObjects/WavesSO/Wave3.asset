@@ -27,4 +27,4 @@ MonoBehaviour:
   _topConvexWall: 0
   _bottomConvexWall: 0
   _leftConvexWall: 0
-  _rightConvexWall: 1
+  _rightConvexWall: 0
