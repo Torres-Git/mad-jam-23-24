@@ -4384,7 +4384,7 @@ PrefabInstance:
     - target: {fileID: 7405930164766472361, guid: 8e13bd7d13858ce44a6ca880bfedcac2,
         type: 3}
       propertyPath: _isGameRestartableInEditor
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8850329294050536562, guid: 8e13bd7d13858ce44a6ca880bfedcac2,
         type: 3}

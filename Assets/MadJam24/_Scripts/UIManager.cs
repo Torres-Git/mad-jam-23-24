@@ -88,7 +88,7 @@ public class UIManager : MonoBehaviour
     {
         _popUp.alpha = 1;
         _popUpText.text = text;
-        yield return new WaitForSecondsRealtime(duration);
+        yield return new WaitForSeconds(duration);
         _popUp.alpha = 0;
 
     }

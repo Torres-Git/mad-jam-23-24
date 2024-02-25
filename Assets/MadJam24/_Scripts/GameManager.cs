@@ -42,11 +42,19 @@ public class GameManager : MonoBehaviour
         #if UNITY_EDITOR
             if(!_isGameRestartableInEditor) return;
         #endif
+        UIManager.Instance.DisplayPopUpText(new PopupText("!SUBJECT DISCARDED!", 1f));    
         Time.timeScale =.2f;
         _isCounting =false;
         StartCoroutine(COR_DelayRestart());
 
     }
+
+    public void WinGame()
+    {
+        UIManager.Instance.DisplayPopUpText(new PopupText("GG Ez!", 1f));    
+        Time.timeScale = 0f;
+    }
+
     IEnumerator COR_DelayRestart()
     {
         yield return new WaitForSecondsRealtime(1f);

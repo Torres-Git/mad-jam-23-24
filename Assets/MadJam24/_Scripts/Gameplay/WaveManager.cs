@@ -56,7 +56,7 @@ public class WaveManager : MonoBehaviour
         }
         else
         {
-            //GameManager.Instance.Win();
+            GameManager.Instance.WinGame();
             return;
         }
 
