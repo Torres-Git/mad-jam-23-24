@@ -64,6 +64,7 @@ public class UIManager : MonoBehaviour
         {
             _nameText.text = "Subject:\n"+ _nameList.Names[rNameIndex];
         }
+
     }
 
     private void Update() 
