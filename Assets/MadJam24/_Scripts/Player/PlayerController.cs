@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IPlayerController
 {
+    private const string  RUN_BOOL = "IsWalk";
 
     [Header("Components")]
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private GameObject _model;
     [SerializeField] private InputReader _input;
+    [SerializeField] private Animator _animator;
     public Vector3 MoveInput { get => _inputVec;  }
     public GameObject Model { get => _model; }
     public Rigidbody Rb { get => _rb;  }
@@ -91,6 +93,8 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     private void Move() 
     {
+        _animator.SetBool(RUN_BOOL, _inputVec.magnitude > 0);
+        Debug.Log( _inputVec.magnitude > 0);
         _rb.MovePosition(transform.position + _model.transform.forward * _inputVec.normalized.magnitude  * _currentSpeed * Time.deltaTime);
     }
 }

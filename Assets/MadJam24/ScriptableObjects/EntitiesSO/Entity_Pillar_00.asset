@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a273d1c68ec8df54a967b8e220d68bd0, type: 3}
-  m_Name: Entity_Ze
+  m_Name: Entity_Pillar_00
   m_EditorClassIdentifier: 
-  _startPos: {x: 4.6, y: 1, z: -5}
-  _entityPrefab: {fileID: 1123188323400103495, guid: 79c51d07f31af8d4ca86f3d5e0f780fe,
+  _name: Hugo
+  _startPos: {x: 6, y: 1, z: -1}
+  _entityPrefab: {fileID: 1123188323400103495, guid: ea6abcb2077f19c4bb107bcc93191c23,
     type: 3}
-  _startHeight: 18
