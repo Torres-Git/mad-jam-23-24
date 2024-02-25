@@ -44,11 +44,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb9a2a74dd5f8240bfd0879cf601fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _preWaveNarration:
+  - text: Welcome subject. Today you will be testing our new weapon for urban warfare.
+    popupDuration: 5.2
+  - text: Your contribution is crucial to Shutter Labs, the leading <b>organization</b>
+      in warfrare ordenance.
+    popupDuration: 5.9
+  - text: The bullets may kill you, but that is a sacrifice we are willing to make.
+    popupDuration: 5.15
+  - text: Shoot the dummies, and avoid getting hit by your own shots.
+    popupDuration: 3
   _waves:
   - {fileID: 11400000, guid: 644e9f34c40a12040a81038faea4350d, type: 2}
   - {fileID: 11400000, guid: 355bf298805d0c34fb24375e68543a55, type: 2}
   - {fileID: 11400000, guid: e8023ccef85414b45aaf487b18993d6b, type: 2}
   - {fileID: 11400000, guid: 3e89ff92e32a66d4d9100dc40b0a1c68, type: 2}
   - {fileID: 11400000, guid: 6e42305c0d521fd4a8a3d84a3409111d, type: 2}
+  - {fileID: 11400000, guid: ca616c7affc0d384ba55c388ea4e912f, type: 2}
+  - {fileID: 11400000, guid: edb32df6d06763546b5c1978e1073772, type: 2}
+  - {fileID: 11400000, guid: 8180af0322704df41a974df7cb62fe82, type: 2}
   _waveNumber: 0
   _entitiesManager: {fileID: 0}
+  _leftWall: {fileID: 0}
+  _rightWall: {fileID: 0}
+  _topWall: {fileID: 0}
+  _bottomWall: {fileID: 0}
