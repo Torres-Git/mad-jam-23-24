@@ -56,6 +56,7 @@ public class UIManager : MonoBehaviour
             var durationLeft = _targetWaveDuration - timer;
             var progress = 1f - (durationLeft / _currentWaveDuration);
             _waveDurationDisplay.fillAmount = progress;
+            if(progress >1) _isOnWave = false;
         }
     }
 
@@ -63,10 +64,8 @@ public class UIManager : MonoBehaviour
     {
         var timeOnWaveStart = GameManager.Instance.SpeedRunTimer;
         _currentWaveDuration = duration;
-        _targetWaveDuration =timeOnWaveStart + _currentWaveDuration;
-
+        _targetWaveDuration = timeOnWaveStart + _currentWaveDuration;
         _isOnWave = true;
-       
     }
     
 

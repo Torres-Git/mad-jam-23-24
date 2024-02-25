@@ -74,6 +74,7 @@ public class WaveManager : MonoBehaviour
     private IEnumerator COR_Wave(Wave waveData)
     {
         Debug.Log("Wave Started!");
+        UIManager.Instance.StartWaveDurationDisplay(waveData.durationInSeconds);
         _entitiesIterator = waveData.Entities.GetEnumerator();
 
         SetupWalls(waveData);
