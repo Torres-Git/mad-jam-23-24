@@ -6,6 +6,7 @@ using DG.Tweening;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] BulletSO _bulletData;
+    [SerializeField] GameObject _playerHitParticles;
     [SerializeField] SimpleAudioEvent _audioPlayerHit, _audioWallHit;
     [SerializeField] AudioSource _audioSource;
     Rigidbody _rigidbody;
@@ -14,6 +15,7 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>(); // Get the Rigidbody component
+        _playerHitParticles.SetActive(false);
     }
 
     // Method to set the velocity and position of the bullet based on direction
@@ -64,8 +66,13 @@ private IEnumerator GraduallyReduceVelocity(float duration, Vector3 targetVeloci
         {
             if(player != null)
             {
+                _playerHitParticles.transform.position = player.Model.transform.position;
+                player.Model.transform.localScale = Vector3.zero;
+                _playerHitParticles.SetActive(true);
+
                 _audioPlayerHit.Play(_audioSource);
                 GameManager.Instance.RestartGame();
+                transform.localScale = Vector3.zero;
             }
         }
         else
