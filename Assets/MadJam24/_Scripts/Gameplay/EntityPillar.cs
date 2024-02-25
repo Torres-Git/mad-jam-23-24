@@ -18,7 +18,8 @@ public class EntityPillar : MonoBehaviour, IEntity
 
     public void OnBulletImpact() 
     {
-        // NADA
+        DOTween.Complete(transform);
+        transform.DOPunchScale(Vector3.one *.2f,.2f);
     }
 
     public bool IsDead()
@@ -28,6 +29,6 @@ public class EntityPillar : MonoBehaviour, IEntity
 
     public void RemoveEntity()
     {
-        transform.DOMoveY(_startHeightOffset, spawnDuration *.2f).OnComplete(()=>Destroy(transform.gameObject));
+        transform.DOMoveY(_startHeightOffset, spawnDuration).OnComplete(()=>Destroy(transform.gameObject));
     }
 }

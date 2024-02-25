@@ -80,10 +80,19 @@ public class WaveManager : MonoBehaviour
         Debug.Log("Wave: " + waveNumber + "/" + _waves.Count);
         // UIManager.instance.DisplayAlertMsg("Wave: " + waveNumber + "/" + _waves.Count, 2.5f);
     }
-
+    private IEnumerator COR_DisplayAllWaveNarration(List<PopupText> popups)
+    {
+        foreach (var item in popups)
+        {
+            UIManager.Instance.DisplayPopUpText(item);
+            yield return new WaitForSeconds(item.popupDuration);
+        }
+       
+    }
     private IEnumerator COR_Wave(Wave waveData)
     {
         Debug.Log("Wave Started!");
+        StartCoroutine(COR_DisplayAllWaveNarration(waveData.narrationStrings));
         UIManager.Instance.StartWaveDurationDisplay(waveData.durationInSeconds);
         _entitiesIterator = waveData.Entities.GetEnumerator();
 

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2778926231177395850}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.38, y: 0.982, z: 0.81}
+  m_LocalPosition: {x: 0, y: 0.982, z: 0.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -80,7 +80,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989789ed8e6436047958662ec2c99bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerDataArray:
+  - {fileID: 11400000, guid: 9dfc4430057add14e8974df9dba66b70, type: 2}
+  - {fileID: 11400000, guid: f298b3c374d45c640a0f62f79930ccc5, type: 2}
+  - {fileID: 11400000, guid: f92eaba0ea6092647a50af7e9bdf9af7, type: 2}
+  - {fileID: 11400000, guid: e63899e4753bb8740aafa38b9c582776, type: 2}
   _rb: {fileID: 5176864387805335326}
+  _blaster: {fileID: 1717712384910920441}
   _model: {fileID: 4459469879705514215}
   _input: {fileID: 11400000, guid: b4b296509185ac14988223cbed2cb5c9, type: 2}
   _animator: {fileID: 7844318015696891214}
@@ -116,8 +122,6 @@ MonoBehaviour:
   _audioSource: {fileID: 55332808501989995}
   _bulletPrefab: {fileID: 6871464133232179077, guid: 788140fa59c968f459aad27176f9f6d0,
     type: 3}
-  _bulletSpeed: 10
-  _gunCooldownInSeconds: 5
   _canFire: 1
 --- !u!136 &2570043867824946902
 CapsuleCollider:

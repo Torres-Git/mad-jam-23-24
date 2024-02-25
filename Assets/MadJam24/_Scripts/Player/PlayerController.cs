@@ -63,22 +63,6 @@ public class PlayerController : MonoBehaviour, IPlayerController
         Debug.Log("PLAYING AS: " + _currentPlayerData.name);
     }
 
-    private void Start() 
-    {
-        //var dataIndex = 0;
-        
-        //if(PlayerPrefs.HasKey(PLAYER_DATA_KEY))
-        //    dataIndex = PlayerPrefs.GetInt(PLAYER_DATA_KEY) + 1;
-        
-        //if(dataIndex>_playerDataArray.Length - 1)
-        //    dataIndex = 0;
-
-        //PlayerPrefs.SetInt(PLAYER_DATA_KEY, dataIndex);// Increment
-
-        //_currentPlayerData = _playerDataArray[dataIndex];
-        //_blaster.SetupBlaster(_currentPlayerData.GunCooldown, _currentPlayerData.BulletSpeed, _currentPlayerData.IsTriggerHappy, _currentPlayerData.BulletScaleOverride);
-        //Debug.Log("PLAYING AS: " + _currentPlayerData.name);
-    }
     private void OnEnable()
     {
         _input.MoveEvent += GatherMovInput;
