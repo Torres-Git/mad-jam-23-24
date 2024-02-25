@@ -10,8 +10,16 @@ public class BlasterBehaviour : MonoBehaviour
     [SerializeField] InputReader _input;
     [SerializeField] Animator _animator;
     [SerializeField] Transform _gunModel;
+    [Space]
+    [SerializeField] MeshRenderer[] _coolDownMeshes;
+    [SerializeField] Material _coolDownMaterial;
+    [SerializeField] Material _readyMaterial;
+    [Space]
     [SerializeField] Bullet _bulletPrefab; // Reference to the bullet prefab
     [SerializeField] float _bulletSpeed = 10;
+    [SerializeField] float _gunCooldownInSeconds = 5f;
+    private WaitForSeconds _gunCooldownYeilder;
+    [SerializeField] bool _canFire = true;
 
     Stack<Bullet> _bulletStack; // A stack to hold the inactive bullets
     Bullet _lastBullet; // Reference to the last bullet fired
@@ -33,6 +41,8 @@ public class BlasterBehaviour : MonoBehaviour
     // Function to request firing a bullet
     void FireRequest()
     {
+        if(!_canFire) return;
+
         Bullet bulletInstance = null;
 
         if (_bulletStack.Count > 0)
@@ -49,8 +59,9 @@ public class BlasterBehaviour : MonoBehaviour
 
         bulletInstance.SetPositionAndDirection(_gunModel,_bulletSpeed);
         _animator.SetTrigger(FIRE_TRIGGER);
-
         _lastBullet = bulletInstance; // Update the reference to the last fired bullet
+
+        StartCoroutine(COR_GunCooldown());
     }
 
     // Function to return a bullet back to the pool
@@ -58,6 +69,22 @@ public class BlasterBehaviour : MonoBehaviour
     {
         bullet.gameObject.SetActive(false); // Deactivate the bullet
         _bulletStack.Push(bullet); // Add the bullet back to the stack
+    }
+
+    private IEnumerator COR_GunCooldown()
+    {
+        _canFire = false;
+        foreach (var item in _coolDownMeshes)
+        {
+            item.material = _coolDownMaterial;
+        }
+        yield return new WaitForSeconds(_gunCooldownInSeconds);
+
+        foreach (var item in _coolDownMeshes)
+        {
+            item.material = _readyMaterial;
+        }
+        _canFire = true;
     }
 
         private void OnDrawGizmosSelected()

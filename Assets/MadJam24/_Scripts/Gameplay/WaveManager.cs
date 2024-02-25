@@ -56,7 +56,7 @@ public class WaveManager : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.WinGame();
+            StartCoroutine(COR_WinGameOnCleanUp());
             return;
         }
 
@@ -122,6 +122,11 @@ public class WaveManager : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
         }
         _areEntitiesDead = true;
+    }
 
+    private IEnumerator COR_WinGameOnCleanUp()
+    {
+        yield return StartCoroutine(COR_WaitForWaveCleanUp());
+        GameManager.Instance.WinGame();
     }
 }
